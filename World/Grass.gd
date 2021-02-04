@@ -1,0 +1,19 @@
+extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+
+func _on_HurtBox_area_entered(area):
+	create_grass_effect()
+	queue_free()
+	
+func create_grass_effect():
+	var GrassEffect = load("res://Effects/GrassEffect.tscn")
+	var grassEffect = GrassEffect.instance()
+	grassEffect.global_position = global_position
+	var world = get_tree().current_scene
+	world.add_child(grassEffect)
