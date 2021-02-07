@@ -457,7 +457,6 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -9 )
 hframes = 60
-frame = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -482,13 +481,13 @@ anims/RunUp = SubResource( 13 )
 tree_root = SubResource( 33 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 34 )
-parameters/Attack/blend_position = Vector2( -0.0118577, -0.0538776 )
-parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/Run/blend_position = Vector2( -0.000991106, -0.00269544 )
+parameters/Attack/blend_position = Vector2( 1, 0 )
+parameters/Idle/blend_position = Vector2( 1, 0 )
+parameters/Run/blend_position = Vector2( 1, 0 )
 
 [node name="HitBoxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
-rotation = 3.14159
+rotation = 1.5708
 
 [node name="SwordHitbox" parent="HitBoxPivot" instance=ExtResource( 3 )]
 position = Vector2( 15, 0 )

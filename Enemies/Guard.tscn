@@ -1,6 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Enemies/Garde_Lapin-1.png" type="Texture" id=1]
+[ext_resource path="res://Music and Sounds/GuardDialog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Hurtboxes + Hitboxes/HitBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Guard.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 18.2897
+height = 7.32825
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.98889
@@ -8,28 +15,36 @@ height = 10.0903
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 40, 40 )
+region = Rect2( 0, 0, 30, 40 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 40, 0, 40, 40 )
+region = Rect2( 0, 0, 30, 40 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 30, 0, 30, 40 )
+
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 3 ), SubResource( 3 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
-"speed": 1.0
+"speed": 2.0
 } ]
 
 [node name="Guard" type="KinematicBody2D"]
 position = Vector2( -127.995, 674.098 )
 collision_mask = 2147483649
+script = ExtResource( 4 )
 
-[node name="Garde_Lapin-1" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 1 )
-hframes = 2
+[node name="HitBox" parent="." instance=ExtResource( 3 )]
+collision_layer = 24
+collision_mask = 2147483650
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( -0.420433, 5.25562 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.68176, 8.6192 )
@@ -37,5 +52,13 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 4 )
+frames = SubResource( 5 )
+frame = 3
 playing = true
+
+[node name="HalteLa" parent="." instance=ExtResource( 2 )]
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
+
+[editable path="HitBox"]
+
+[editable path="HalteLa"]
