@@ -11,22 +11,20 @@ enum {
 
 var state = MOVE
 var velocity = Vector2.ZERO
+var stats = PlayerStats
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = $AnimationTree.get("parameters/playback")
 onready var swordHitbox = $HitBoxPivot/SwordHitbox
+onready var hurtbox = $HurtBox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	stats.connect("no_health", self, "queue_free")
 	swordHitbox.knockback_vector = Vector2.ZERO
 	animationTree.active = true
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _physics_process(delta):
 	match state:
@@ -68,3 +66,10 @@ func attack_state(delta):
 
 func attack_animation_finished():
 	state = MOVE
+
+
+func _on_HurtBox_area_entered(area):
+	stats.health -= 1
+	hurtbox.start_invicibility(0.5)
+	hurtbox.create_hit_effect()
+	
