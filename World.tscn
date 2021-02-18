@@ -150,10 +150,12 @@ position = Vector2( -570.193, -184.963 )
 [node name="BottomRight" parent="Camera2D/Limits" index="1"]
 position = Vector2( 410.903, 788.002 )
 
-[node name="HealthUI" parent="." instance=ExtResource( 11 )]
-margin_left = -368.0
-margin_top = 680.0
-margin_right = -312.0
-margin_bottom = 712.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 11 )]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 66.0
+margin_bottom = 26.0
 
 [editable path="Camera2D"]
