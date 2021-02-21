@@ -5,6 +5,7 @@ const HitEffect = preload("res://Effects/HitEffect.tscn")
 var invicible = false setget set_invicible
 
 onready var timer = $Timer
+onready var collisionShape = $CollisionShape2D
 
 signal invicibility_started
 signal invicibility_ended
@@ -32,8 +33,8 @@ func _on_Timer_timeout():
 	self.invicible = false
 
 func _on_HurtBox_invicibility_started():
-	set_deferred("monitorable", false)
+	collisionShape.set_deferred("disabled", true)
 
 
 func _on_HurtBox_invicibility_ended():
-	set_deferred("monitorable", true)
+	collisionShape.disabled = false
