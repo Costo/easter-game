@@ -139,7 +139,7 @@ position = Vector2( -224, 624 )
 [node name="Trees" type="YSort" parent="YSort"]
 
 [node name="Tree" parent="YSort/Trees" instance=ExtResource( 12 )]
-position = Vector2( -136, 768 )
+position = Vector2( -112.586, 722.958 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( -232, 768 )

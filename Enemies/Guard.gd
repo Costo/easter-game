@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var dialog = $HalteLa
+const Dialogue = preload("res://UI/Dialogue.tscn")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,5 +18,6 @@ func _ready():
 
 
 func _on_HitBox_area_entered(area):
-	dialog.stream.loop = false
-	dialog.play()
+	var dialogue = Dialogue.instance()
+	get_tree().current_scene.add_child(dialogue)
+

@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Player/Croque_Fenouil.png" type="Texture" id=1]
+[ext_resource path="res://Player/Jean_Carotte.png" type="Texture" id=2]
+[ext_resource path="res://Music and Sounds/halt.ogg" type="AudioStream" id=3]
+[ext_resource path="res://UI/Dialogue.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.564706, 0.239216, 0.239216, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.705882, 0.572549, 0.572549, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="CF" type="TextureRect" parent="."]
+margin_left = 201.662
+margin_top = 93.8308
+margin_right = 1970.66
+margin_bottom = 1921.83
+rect_scale = Vector2( 0.08, 0.08 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 153.462
+margin_top = 172.881
+margin_right = 317.462
+margin_bottom = 238.881
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 2.0
+margin_bottom = 2.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Halte-là !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JC" type="TextureRect" parent="."]
+margin_left = -151.504
+margin_top = -4.00452
+margin_right = 1617.5
+margin_bottom = 1824.0
+rect_scale = Vector2( 0.08, 0.08 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HalteLa" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+pitch_scale = 0.9
