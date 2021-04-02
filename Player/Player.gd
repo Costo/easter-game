@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 const PlayerHurtSound = preload("res://Music and Sounds/PlayerHurtSound.tscn")
 
-export var MAXSPEED = 100
-export var ACCELERATION = 10
+export var MAXSPEED = 400
+export var ACCELERATION = 40
 
 enum {
 	MOVE,

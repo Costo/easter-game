@@ -10,5 +10,5 @@ func _on_HurtBox_area_entered(area):
 	
 func create_grass_effect():
 	var grassEffect = GrassEffect.instance()
-	grassEffect.global_position = global_position
 	get_parent().add_child(grassEffect)
+	grassEffect.global_position = global_position

@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
-export var ACCELERATION = 300
-export var MAX_SPEED = 40
-export(float) var FRICTION = 0.2
-export var WANDER_TARGET_RANGE = 4
+export var ACCELERATION = 1200
+export var MAX_SPEED = 120
+export(float) var FRICTION = 0.8
+export var WANDER_TARGET_RANGE = 16
 
 enum {
 	IDLE,
@@ -81,7 +81,7 @@ func pick_random_state(state_list):
 
 func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
-	knockback = area.knockback_vector * 200
+	knockback = area.knockback_vector * 800
 	hurtbox.create_hit_effect()
 	hurtbox.start_invicibility(0.4)
 

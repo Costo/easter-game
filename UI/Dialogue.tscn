@@ -23,21 +23,37 @@ corner_radius_bottom_left = 2
 script = ExtResource( 4 )
 
 [node name="CF" type="TextureRect" parent="."]
-margin_left = 201.662
-margin_top = 93.8308
-margin_right = 1970.66
-margin_bottom = 1921.83
-rect_scale = Vector2( 0.08, 0.08 )
+margin_left = 695.553
+margin_top = 216.636
+margin_right = 2464.55
+margin_bottom = 2044.64
+rect_scale = Vector2( 0.32, 0.32 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="JC" type="TextureRect" parent="."]
+margin_left = -47.3865
+margin_top = 206.9
+margin_right = 1721.62
+margin_bottom = 2034.9
+rect_scale = Vector2( 0.32, 0.32 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Panel" type="Panel" parent="."]
-margin_left = 153.462
-margin_top = 172.881
-margin_right = 317.462
-margin_bottom = 238.881
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -511.0
+margin_top = -250.0
+margin_right = -258.0
+margin_bottom = -201.0
+rect_scale = Vector2( 4, 4 )
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -64,17 +80,6 @@ margin_right = 2.0
 margin_bottom = 2.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Halte-là !"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="JC" type="TextureRect" parent="."]
-margin_left = -151.504
-margin_top = -4.00452
-margin_right = 1617.5
-margin_bottom = 1824.0
-rect_scale = Vector2( 0.08, 0.08 )
-texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
